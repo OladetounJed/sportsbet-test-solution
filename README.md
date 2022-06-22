@@ -13,13 +13,12 @@ Mini Sportsbet [sportsbet-mini.xyz](https://sportsbet-mini.xyz)
 
 ## About The App
 
-**Mini Sportsbet** is a mini version of [sportsBet Website](https://sportsbet.io) and solution to [Sportsbet Frontend Engineering Interview Test](https://github.com/coingaming/sportsbet-test-assignment) built by Oladetoun Temitayo from the interview process at Yolo Group. The app fetch sports events from a GraphQL server and display it "1x2" odds. It also update the odds using Websocket (GraphQL Subscriptions) and update suspended events accordingly.
+**Mini Sportsbet** is a mini version of [Sportsbet Website](https://sportsbet.io) and solution to [Sportsbet Frontend Engineering Interview Test](https://github.com/coingaming/sportsbet-test-assignment) built by Oladetoun Temitayo. The app fetch sports events from a GraphQL server and display it "1x2" odds. It also update the odds using Websocket (GraphQL Subscriptions) and update suspended events accordingly.
 
 ## Screenshots
 
 <img width="644" alt="Moon Design System" src="https://raw.githubusercontent.com/coingaming/sportsbet-test-assignment/main/Page.png">
 
-Web App V1
 
 ## Technologies
 
