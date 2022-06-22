@@ -1,25 +1,66 @@
-# Next.js + Jest
+# Mini Sportsbet
 
-This example shows how to configure Jest to work with Next.js.
+Mini Sportsbet [sportsbet-mini.xyz](https://sportsbet-mini.xyz)
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+## Table of Content:
 
-## How to Use
+- [About The App](#about-the-app)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Credits](#credits)
+- [License](#license)
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
+## About The App
 
-In your terminal, run the following command:
+**Mini Sportsbet** is a mini version of [sportsBet Website](https://sportsbet.io) and solution to [Sportsbet Frontend Engineering Interview Test](https://github.com/coingaming/sportsbet-test-assignment) built by Oladetoun Temitayo from the interview process at Yolo Group. The app fetch sports events from a GraphQL server and display it "1x2" odds. It also update the odds using Websocket (GraphQL Subscriptions) and update suspended events accordingly.
+
+## Screenshots
+
+<img width="644" alt="Moon Design System" src="https://raw.githubusercontent.com/coingaming/sportsbet-test-assignment/main/Page.png">
+
+Web App V1
+
+## Technologies
+
+The frontend architecture use `Nextjs` as the JavaScript Framework written in `TypeScript` and Using `Tailwind` for UI Styling.
+
+Other secondary technologies used on this project includes:
+
+- `Jest`
+- `React Testing Library`
+- `Context API`
+- `URQL`
+- `GraphQL-WS`
+- `Framer Motion`
+
+## Setup
+
+### Download or clone the repository
+
+### Install dependencies
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
-# or
-yarn create next-app --example with-jest with-jest-app
-# or
-pnpm create next-app --example with-jest with-jest-app
+
+yarn install
+
 ```
 
-## Run Jest Tests
+### After, run the development server:
 
 ```bash
-npm test
+
+yarn dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Credits
+
+List of contriubutors:
+
+- [Oladetoun Temitayo](https://temi.vercel.app/)
+
+## License
+
+License:
