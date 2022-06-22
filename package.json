@@ -5,20 +5,35 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "cypress": "cypress open",
+    "cypress:start": "start-server-and-test dev http://localhost:3000 cypress"
   },
   "dependencies": {
+    "cypress": "^10.1.0",
+    "framer-motion": "^6.3.11",
+    "graphql": "^16.5.0",
+    "graphql-ws": "^5.9.0",
     "next": "latest",
+    "next-urql": "^3.3.3",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-is": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "start-server-and-test": "^1.14.0",
+    "urql": "^2.2.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "13.2.0",
     "@testing-library/user-event": "14.2.0",
     "@types/react": "18.0.9",
+    "autoprefixer": "^10.4.7",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
+    "msw": "^0.42.1",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.3",
     "typescript": "4.6.4"
   }
 }

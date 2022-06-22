@@ -1,65 +1,38 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { PrimaryButton } from "@/components/PrimaryButton";
+import { client } from "@api/gateway";
+import { EventsQuery } from "@api/schema";
+import ActiveEventContainer from "@sections/ActiveEventContainer";
+import { AppHeader } from "@sections/AppHeader";
+import { EventManager } from "src/store/EventManager";
+import SuspendedEventContainer from "@sections/SuspendedEventContainer";
+import { useContext } from "react";
+import { EventContext } from "src/store/event";
+import { EventsData } from "src/types";
 
-import styles from '@/pages/index.module.css'
-
-export default function Home() {
+function Home(props: EventsData) {
+  const { activeEvents, suspendedEvents } = useContext(EventContext);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <main className="bg-[#222a32e5] min-h-screen">
+      <EventManager data={props.data} />
+      <div className="bg-goku max-w-full sm:max-w-screen-md w-100  m-auto p-4 sm:p-12">
+        <AppHeader />
+        <SuspendedEventContainer suspendedEvents={suspendedEvents} />
 
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        <h1 className="text-white font-light text-sm sm:text-xl mt-10 mb-8 tracking-wider">
+          Go to Sportsbet and place your own bet!
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/new" className={styles.card}>
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+        <ActiveEventContainer activeEvents={activeEvents} />
+        <PrimaryButton type="button" text="See all featured events" />
+      </div>
+    </main>
+  );
 }
+
+// This gets called on every page reload
+export async function getServerSideProps(context: any) {
+  const { data } = await client.query(EventsQuery).toPromise();
+  // Pass data to the page via props
+  return { props: { data } };
+}
+
+export default Home;
