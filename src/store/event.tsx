@@ -10,8 +10,8 @@ type EventType = {
 };
 
 const EventProvider = ({ children }: any) => {
-    const [activeEvents, setActiveEvents] = useState(Array<Event>);
-    const [suspendedEvents, setSuspendedEvents] = useState(Array<Event>);
+    const [activeEvents, setActiveEvents] = useState([] as Array<Event>);
+    const [suspendedEvents, setSuspendedEvents] = useState([] as Array<Event>);
    
     return (
       <EventContext.Provider value={{ activeEvents, suspendedEvents, setSuspendedEvents, setActiveEvents }}>
