@@ -1,11 +1,14 @@
-import { EventSubscription } from "@api/schema";
+import { EventsQuery, EventSubscription } from "@api/schema";
 import React, { useContext, useEffect } from "react";
 import { EventContext } from "src/store/event";
 import { EventProp, Event, EventsData } from "src/types";
-import { useSubscription } from "urql";
+import { useQuery, useSubscription } from "urql";
 
 //Manage All Events to be fetched at Page Load
 export function EventManager({ data }: EventsData) {
+  const [result, reexecuteQuery] = useQuery({
+    query: EventsQuery,
+  });
   const { activeEvents, suspendedEvents, setSuspendedEvents, setActiveEvents } =
     useContext(EventContext);
   useEffect(() => {
@@ -22,8 +25,8 @@ export function EventManager({ data }: EventsData) {
     );
   }, [data]);
 
-  // sanity checks for react concurrency issue that is duplicating events
   useEffect(() => {
+    // sanity checks for react concurrency issue that is duplicating events
     suspendedEvents.forEach((element) => {
       const duplicatedEvent = activeEvents.find((e) => e.id === element.id);
 
@@ -34,6 +37,21 @@ export function EventManager({ data }: EventsData) {
       );
       setActiveEvents(updatedEvents);
     });
+
+    // Refetch data from server once active events
+    if (!activeEvents.length && suspendedEvents.length) {
+    
+    reexecuteQuery({ requestPolicy: "network-only" });
+       //Set active events after refetching data from server
+    setActiveEvents(
+      result?.data?.events?.filter((event: any) => event?.markets?.length)
+    );
+    //Set suspended events after refetching data from server
+    setSuspendedEvents(
+      result?.data?.events?.filter((event: any) => !event?.markets?.length)
+    );
+
+    }
   }, [suspendedEvents.length, activeEvents.length]);
 
   return (

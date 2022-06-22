@@ -22,7 +22,7 @@ function Home(props: EventsData) {
           Go to Sportsbet and place your own bet!
         </h1>
         <ActiveEventContainer activeEvents={activeEvents} />
-        <PrimaryButton type="button" text="See all featured events" />
+        <PrimaryButton disabled={true} type="button" text="See all featured events" />
       </div>
     </main>
   );

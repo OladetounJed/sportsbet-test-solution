@@ -1,6 +1,6 @@
 # Mini Sportsbet
 
-Mini Sportsbet [sportsbet-mini.xyz](https://sportsbet-mini.xyz)
+Mini Sportsbet [mini-sportsbet.xyz](https://mini-sportsbet.xyz)
 
 ## Table of Content:
 
