@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders event odds component correctly 1`] = `
+<div
+  class="h-full bg-goku flex items-center justify-center text-piccolo text-xs sm:text-base   font-semibold w-full rounded"
+>
+  +92
+</div>
+`;

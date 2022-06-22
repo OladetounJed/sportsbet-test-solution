@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders event odds component correctly 1`] = `
+<button
+  class="bg-piccolo text-white text-base sm:text-xl font-normal rounded-full tracking-wider p-3 sm:p-5 my-4 w-full"
+>
+  Get All Events
+</button>
+`;

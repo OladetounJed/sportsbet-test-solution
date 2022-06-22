@@ -2,17 +2,13 @@
 
 exports[`renders event data component correctly 1`] = `
 <div
-  class=" flex text-sm text-trunks gap-1"
+  class=" flex text-xs sm:text-sm text-trunks gap-1"
+  role="event-date"
 >
-  <span
-    data-testid="event-date"
-  >
+  <p>
     Jan 1
-  </span>
-  <span
-    data-testid="event-time"
-  >
+     
     12:34
-  </span>
+  </p>
 </div>
 `;

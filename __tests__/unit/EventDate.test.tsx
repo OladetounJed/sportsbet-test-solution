@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { EventDate} from "@/components/EventDate";
 
 
-test("renders event data component correctly", async () => {
+test("renders event data component correctly",  () => {
 
     const {container} = render(
         <EventDate date="Jan 1" time="12:34" />
@@ -11,7 +11,6 @@ test("renders event data component correctly", async () => {
       
       expect(container.firstChild).toMatchSnapshot()
     
-    expect(screen.getByTestId("event-date")).toHaveTextContent("Jan 1");
-    expect(screen.getByTestId("event-time")).toHaveTextContent("12:34");
+    expect(screen.getByRole("event-date").firstChild).toHaveTextContent("Jan 1 12:34");
 });
 

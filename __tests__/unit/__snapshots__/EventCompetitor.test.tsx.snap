@@ -4,17 +4,17 @@ exports[`renders event competitor component correctly 1`] = `
 <div
   class=" flex items-center justify-between text-trunks"
 >
-  <span
-    class="font-light text-sm text-white"
+  <p
+    class="font-light text-xs sm:text-sm text-white"
     data-testid="competitor-name"
   >
     Arsenal FC
-  </span>
-  <span
-    class="text-piccolo"
+  </p>
+  <p
+    class="text-piccolo text-xs sm:text-sm"
     data-testid="competitor-score"
   >
     1
-  </span>
+  </p>
 </div>
 `;

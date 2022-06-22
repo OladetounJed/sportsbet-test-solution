@@ -2,9 +2,8 @@
 
 exports[`renders event odds component correctly 1`] = `
 <div
-  class="h-full bg-goku flex items-center justify-center text-white   font-semibold w-full rounded cursor-pointer"
+  class="h-full bg-goku flex items-center justify-center text-white text-xs sm:text-base  font-semibold w-full rounded cursor-pointer"
   data-testid="event-odd"
-  style="opacity: 0; transform: none;"
 >
   12.00
 </div>

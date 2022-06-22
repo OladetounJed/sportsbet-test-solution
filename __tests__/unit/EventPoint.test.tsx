@@ -1,18 +1,13 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { EventOdd } from "@/components/EventOdd";
+import { EventPoint } from "@/components/EventPoint";
 
-test("renders event odds component correctly", async () => {
+test("renders event odds component correctly", () => {
   
-  render(<EventOdd selection={{ odds: 12 }} />);
-  expect(screen.getByTestId("event-odd")).toHaveTextContent("12");
+  const {container} = render(<EventPoint/>);
+    
+  expect(container.firstChild).toMatchSnapshot()
+  expect(screen.getByText("+92")).toBeInTheDocument();
 });
 
-test("check if odd component doesn't click when there is no odd", async () => {
-  render(<EventOdd selection={{ odds: 12 }} />);
-  const handleClick = jest.fn();
-  expect(screen.getByTestId("event-odd")).toHaveTextContent("12");
-
-  fireEvent.click(screen.getByTestId("event-odd"));
-  expect(handleClick).toHaveBeenCalledTimes(0);
-});
